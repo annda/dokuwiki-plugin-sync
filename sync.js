@@ -133,9 +133,9 @@ jQuery(function () {
         row++;
 
         var $html = jQuery(
-            '<label class="push"><input /></label>' +
-            '<label class="skip"><input /></label>' +
-            '<label class="pull"><input /></label>'
+            '<label class="push"><span></span><input /></label>' +
+            '<label class="skip"><span></span><input /></label>' +
+            '<label class="pull"><span></span><input /></label>'
         );
         var $radios = $html.find('input');
         $radios.attr({

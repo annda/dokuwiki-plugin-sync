@@ -50,6 +50,10 @@
             width: 6em;
         }
 
+        td.dir {
+            display: flex;
+        }
+
         th.local,
         td.local,
         th.remote,
@@ -65,25 +69,34 @@
 
         // general setup for custom radio buttons
         label input {
-            visibility: hidden;
-            width: 2em;
-            height: 2em;
+            //visibility: hidden;
+            //width: 2em;
+            //height: 2em;
 
-            &::before {
-                cursor: pointer;
-                visibility: visible;
-                display: block;
-                width: 2em;
-                height: 2em;
-
-                color: @ini_text;
-                fill: red;
-            }
+            //&::before {
+            //    cursor: pointer;
+            //    visibility: visible;
+            //    display: block;
+            //    width: 2em;
+            //    height: 2em;
+            //
+            //    color: @ini_text;
+            //    fill: red;
+            //}
         }
 
-        // custom radio icons
-        label.push input {
-            &::before {
+        /**
+          * custom radio icons
+         */
+
+        // enable ::before content for <input> in Firefox
+        // https://stackoverflow.com/a/59591634
+        //input[type=radio] {
+        //    -moz-appearance:initial;
+        //}
+
+        label.push {
+            span {
                 content: url(pix/arrow-right-bold-circle-outline.svg);
             }
             &:checked::before {
@@ -91,17 +104,17 @@
             }
         }
 
-        label.skip input {
-            &::before {
+        label.skip {
+            span {
                 content: url(pix/pause-circle-outline.svg);
             }
-            &:checked::before {
+            & + input:checked {
                 content: url(pix/pause-circle.svg);
             }
         }
 
-        label.pull input {
-            &::before {
+        label.pull {
+            span {
                 content: url(pix/arrow-left-bold-circle-outline.svg);
             }
             &:checked::before {
